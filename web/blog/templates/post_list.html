@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <P><a href="{% url 'blog:post_create' %}" class="btn btn-primary float-right"><i class="fas fa-pencil-alt"></i> ADD POST</a></P>
+            {% for obj in post %}
+         <ul>
+           <li> <a href="{% url 'blog:post-single' id=obj.id %}" >{{ obj.title}}</a> <small>{{obj.timestamp}}</small></li>
+            <li><p><h1>subject</h1>{{obj.subject}}</p></li>
+           <li> <p><h1>content</h1>{{obj.content}}</p></li>
+            <li><p><h1>id</h1>{{obj.id}}</p></li>
+             </ul>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <input type="submit" class="btn btn-primary" value="do you want to delete that ?">
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate, login, logout
 
 from django.shortcuts import redirect
 from . forms import User_register_form
+from django.core.exceptions import ValidationError
 
 # Create your views here.
 
@@ -45,4 +46,12 @@ def register_user(request):
     else:
         form = User_register_form()
     return render(request, template_name="register_user.html", context={"form":form})
+
+
+#
+
+
+
+
+
 
