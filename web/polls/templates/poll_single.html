@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+                <a href="{% url 'polls:poll_delete' id=poll.id %}" class="btn btn-primary float-right" >Delete POLL</a>
+                <a href="{% url 'polls:choice_create' id=poll.id  %}" class="btn btn-primary float-right" >ADD choice </a>
+                <a href="{% url 'polls:poll_edit' id=poll.id  %}" class="btn btn-primary float-right" >Edit poll </a>
+    <div class="row">
+        <div class="col">
+            {{poll}}
+            {% for choice in poll.choice_set.all %}
+            <P><a href="{% url 'polls:choice_edit' id=choice.id %}" class="btn btn-primary float-right" >Edit choice</a>{{ choice }}</P>
+            <P><a href="{% url 'polls:choice_delete' id=choice.id %}" class="btn btn-primary float-right" >delete choice</a></P>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

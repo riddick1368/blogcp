@@ -14,12 +14,14 @@
           </li>
             {% else %}
             <li class="nav-item">
-            <a class="nav-link" href="#">register</a>
+            <a class="nav-link" href="{% url 'account:register' %}">register</a>
             </li>
               <li class="nav-item">
             <a class="nav-link" href="{% url 'account:login' %}">login</a>
           </li>
             {% endif %}
+                      <a class="nav-link" href="{% url 'polls:poll_list' %}">Poll</a>
+              <a class="nav-link" href="{% url 'blog:post_list' %}">Blog</a>
           <div class="dropdown">
             <button class="dropbtn">
                     <i class="fa fa-caret-down"></i>

@@ -23,7 +23,7 @@ class Poll(models.Model):
 
 
     def __str__(self):
-        return self.title
+        return self.text
 
 
 
@@ -31,7 +31,8 @@ class Choice(models.Model):
     poll= models.ForeignKey(Poll,on_delete=models.CASCADE)
     answer = models.TextField(max_length=200)
 
-
+    def __str__(self):
+        return self.answer
 
 class Vote(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)

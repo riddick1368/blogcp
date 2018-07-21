@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <form action="" method="POST">
+                {% csrf_token %}
+                       <h3>are you sure you want delete this choice</h3><input type="submit" class="btn btn-primary" value="YES">
+            <a href="{% url 'home' %}" class="btn btn-primary">No back me home </a>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

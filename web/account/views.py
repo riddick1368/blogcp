@@ -1,10 +1,7 @@
-from django.shortcuts import render
-
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-
-from django.shortcuts import redirect
+from django.shortcuts import redirect,render
 from . forms import User_register_form
 from django.core.exceptions import ValidationError
 
@@ -23,6 +20,7 @@ def login_user(request):
         if user is not None:
             login(request, user)
             return redirect("home")
+            messages.success(request,"login success Finito")
         else:
             return redirect("account:login")
     return render(request,template_name="login.html",context={})

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+            <a href="{% url 'polls:poll_create' %}" class="btn btn-primary float-right" >ADD POLL</a>
+        <div class="row">
+        <div class="col-md-5">
+            {% for obj in poll %}
+           <div class="card" style="width: 18rem;">
+  <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{obj.text}}</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="{% url 'polls:poll_single' id=obj.id %}" class="btn btn-primary">See details</a>
+  </div>
+</div>
+            </div>
+            {% endfor %}
+
+
+    </div>
+</div>
+{% endblock %}
