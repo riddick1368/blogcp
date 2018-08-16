@@ -22,18 +22,17 @@
             {% endif %}
                       <a class="nav-link" href="{% url 'polls:poll_list' %}">Poll</a>
               <a class="nav-link" href="{% url 'blog:post_list' %}">Blog</a>
-          <div class="dropdown">
-            <button class="dropbtn">
-                    <i class="fa fa-caret-down"></i>
-              blog</button>
+          {% if request.user.is_authenticated %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{request.user}}</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="{% url 'account:profile' %}">Profile</a>
+              <a class="dropdown-item" href="{% url 'account:edit_profile' username=user.username %}">Change Profile</a>
+              <a class="dropdown-item" href="{% url 'account:change_password' username=user.username %}">Change Password</a>
             <div class="dropdown-content">
-              <a href=""></a>
-              <a href=""></a>
-              <a href=""></a>
-            </div>
-            </div>
+            {% endif %}
           <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
+            <a class="nav-link " href="{% url 'account:contact' %}">Contact Us</a>
           </li>
         </ul>
         <form class="form-inline mt-2 mt-md-0">

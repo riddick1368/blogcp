@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+         <h2>{{ user.get_full_name }}</h2>
+        <ul>
+          <li>Username: {{ user.username }}</li>
+          <li>Location: {{ user.userprofile.country }}</li>
+          <li>Birth Date: {{ user.userprofile.city }}</li>
+        </ul>
+            <a href="{% url 'account:edit_profile' username=user.username %}" class="btn btn-primary">change profile </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

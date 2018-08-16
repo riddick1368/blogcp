@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
+from .models import UserProfile
 
 
 
@@ -48,3 +49,40 @@ class User_register_form(forms.Form):
 
 
 
+
+
+class UserProfileForm(forms.ModelForm):
+
+    class Meta:
+        model = UserProfile
+        fields = ["city","country"]
+
+
+
+class UserForm (forms.ModelForm):
+
+    class Meta:
+        model = User
+        fields = ["username","last_name"]
+
+
+class ChangePasswordForm(forms.ModelForm):
+    old_password = forms.CharField(label="old_password",strip=False,widget=forms.PasswordInput(attrs={'autofocus':True}))
+    new_password = forms.CharField(label='new_password',widget=forms.PasswordInput(attrs={"class":"form-control"}))
+    new_password2 = forms.CharField(label="confirm_password",widget=forms.PasswordInput(attrs={'class':'form-control'}))
+
+
+
+    def clean_password(self):
+        new1 = self.cleaned_data.get('new_password')
+        new2 = self.cleaned_data.get('new_password2')
+        if new1 and new2 and new1 != new2:
+            raise ValidationError("Password dosen't match")
+        return new2
+
+
+    def clean_old_password(self):
+        old_password = self.cleaned_data.get("old_password")
+        if not self.user.check_password(old_password):
+            raise ValidationError("password not valid")
+        return old_password

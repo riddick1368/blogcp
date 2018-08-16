@@ -1,0 +1,6 @@
+this is email from this user:
+{{user}}
+with this email :
+{{email}}
+And with this family_name :
+{{family_name}}

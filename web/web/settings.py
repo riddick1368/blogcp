@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'blog',
     'account',
     'polls',
+    'newsletter',
+    'crispy_forms',
+    'products',
 ]
 
 MIDDLEWARE = [
@@ -136,3 +139,19 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR),'static_cdn')
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR),'media_cdn')
+
+
+
+
+# sendgrid settings
+
+
+SEND_GRID_API_KEY = "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"
+EMAIL_HOST = "smtp.sendgrid.net"
+EMAIL_HOST_USER = "riddick1368"
+EMAIL_HOST_PASSWORD = "arsenal1368"
+EMAIL_PORT= 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = "elnino.riddick@yahoo.com"
+ACCOUNT_EMAIL_SUBJECT_PREFIX = " MY WEBSITE"
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"

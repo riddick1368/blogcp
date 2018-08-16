@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+
+{% if  product.productimage_set.count > 0 %}
+             {% for img in product.productimage_set.all %}
+            <img class="img-thumbnail" style="width:600px; height:600px;" src="{{img.image.url}}"/>
+            {% endfor %}
+            {% endif %}
+        </div>
+        <div class="col-md-4">
+            {{product.title}}
+            <p>{{product.price}}</p>
+            {% if product.varation_set.count > 1 %}
+            <select class="form-control">
+            {% for varation in product.varation_set.all %}
+            <option value="{{varation.id}}">{{varation}}</option>
+            {% endfor %}
+            </select>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

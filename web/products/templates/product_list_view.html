@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+
+            <table class="table table-bordered">
+                <thead>
+                <td scope="col-md-8"></td>
+                <td scope="col-md-3"></td>
+                <td scope="col-md-1"></td>
+                </thead>
+                <tbody>
+                <tr>
+                    <td scope="row"></td>
+                    <td>title</td>
+                    <td>description</td>
+                    <td>detail</td>
+                </tr>
+                {% for object in product %}
+                <tr>
+                    <td scope="row"></td>
+                    <td>{{object.title}}</td>
+                    <td>{{object.description}}</td>
+                    <td>detail</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

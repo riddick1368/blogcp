@@ -30,6 +30,8 @@ if settings.DEBUG:
         path('polls/',include("polls.urls",namespace="polls")),
         path('blog/',include("blog.urls",namespace="blog")),
         path('account/',include("account.urls",namespace="account")),
+        path('products/',include("products.urls",namespace="products")),
+        path('newsletter/',include("newsletter.urls",namespace="newsletter")),
 
     ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
