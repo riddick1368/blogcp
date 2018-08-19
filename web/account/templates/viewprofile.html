@@ -9,6 +9,7 @@
           <li>Username: {{ user.username }}</li>
           <li>Location: {{ user.userprofile.country }}</li>
           <li>Birth Date: {{ user.userprofile.city }}</li>
+          <li><img src="{{ user.userprofile.image.url }}"></li>
         </ul>
             <a href="{% url 'account:edit_profile' username=user.username %}" class="btn btn-primary">change profile </a>
         </div>

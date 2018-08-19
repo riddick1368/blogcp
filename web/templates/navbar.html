@@ -21,7 +21,12 @@
           </li>
             {% endif %}
                       <a class="nav-link" href="{% url 'polls:poll_list' %}">Poll</a>
-              <a class="nav-link" href="{% url 'blog:post_list' %}">Blog</a>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'products:prodtuc_list_view' %}">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'blog:post_list' %}">Blog</a>
+          </li>
           {% if request.user.is_authenticated %}
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{request.user}}</a>

@@ -23,6 +23,7 @@ class UserProfile(models.Model):
     phone_number = models.IntegerField(default=0)
     description = models.TextField(max_length=500)
     role = models.PositiveSmallIntegerField(choices=Role_choice,blank=True,null=True)
+    image = models.ImageField(blank=True)
 
     def __str__(self):
         return self.user.username
