@@ -4,4 +4,10 @@ from .models import UserProfile
 # Register your models here.
 
 
-admin.site.register(UserProfile)
+
+
+class UserProfileAdmin(admin.ModelAdmin):
+    list_display = ['user','country','city']
+
+
+admin.site.register(UserProfile,UserProfileAdmin)
